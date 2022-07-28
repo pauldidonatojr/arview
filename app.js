@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const port = 3000
 const logger = require('./achieve/logger')
 const authorize = require('./achieve/authorize')
 // req => middleware => res
@@ -25,6 +26,4 @@ app.use([logger, authorize])
 // app.get('/api/items', (req, res) => {
 //  res.send('Items')
 // })
-app.listen(5000, () => {
- console.log('Server is listening on port 5000.....')
-})
+app.listen(process.env.PORT || port, () => console.log(`Server is live`))
