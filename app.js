@@ -1,8 +1,8 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const logger = require('./achieve/logger')
-const authorize = require('./achieve/authorize')
+const express = require('express');
+const app = express();
+const port = 5000;
+const logger = require('./achieve/logger');
+const authorize = require('./achieve/authorize');
 // req => middleware => res
 // to use multiple middleware functions put them in an array
 
@@ -10,9 +10,9 @@ const authorize = require('./achieve/authorize')
 // 2. options - our / express / third party
 
 // app.use([logger, authorize])
-app.use(express.static('./ar-app'))
+app.use(express.static('./dist'));
 
-app.use([logger, authorize])
+app.use([logger, authorize]);
 // api/home/about/products
 // app.get('/', (req, res) => {
 //  res.send('Home')
@@ -26,4 +26,4 @@ app.use([logger, authorize])
 // app.get('/api/items', (req, res) => {
 //  res.send('Items')
 // })
-app.listen(process.env.PORT || port, () => console.log(`Server is live`))
+app.listen(process.env.PORT || port, () => console.log(`Server is live`));
